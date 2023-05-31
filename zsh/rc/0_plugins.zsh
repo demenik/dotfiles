@@ -1,6 +1,6 @@
 source "${ZDOTDIR}"/plugins.zsh # get github_plugins
 
-# Uninstall unused plugins
+# Uninstall unused Github plugins
 for filename in $(ls ${ZDOTDIR}/plugins); do
   plugin=$(echo $filename | tr "@" "/")
 
@@ -14,7 +14,7 @@ done
 unset filename
 unset plugin
 
-# Install Plugins
+# Install Github Plugins
 
 for plugin in $github_plugins; do
   filename=$(echo $plugin | tr "/" "@")
@@ -38,7 +38,19 @@ unset plugin
 unset filename
 unset initscript
 
-# Update Plugins
+# Update Github Plugins
 
 # command to update all plugins
 alias plugpull="find ${ZDOTDIR}/plugins -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull"
+
+
+# Install Cargo Plugins
+
+for plugin in $cargo_plugins; do
+  # install the plugin from cargo if it doesn't exist
+  if ! command -v $plugin &> /dev/null; then
+    echo "\033[0;32mInstalling \033[1;32m'${plugin}'\033[0;32m...\033[0m"
+    cargo install $plugin
+    echo "  \033[0;32m..done\033[0m"
+  fi
+done

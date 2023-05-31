@@ -6,3 +6,8 @@ github_plugins=(
   zdharma/fast-syntax-highlighting
   romkatv/powerlevel10k
 )
+
+cargo_plugins=(
+  bat
+  exa
+)

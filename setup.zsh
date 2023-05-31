@@ -10,3 +10,8 @@ ln -nfs $SCRIPT_DIR/config/.gitconfig $HOME/.gitconfig
 echo "  ..done"
 
 unset SCRIPT_DIR
+
+if ! command -v cargo &> /dev/null
+then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
