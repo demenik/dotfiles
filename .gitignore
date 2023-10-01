@@ -4,3 +4,6 @@ zsh/.zsh_sessions
 
 zsh/plugins/**/*
 !zsh/plugins/.gitkeep
+
+# DS_Store
+**/.DS_Store
