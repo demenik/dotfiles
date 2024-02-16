@@ -1,3 +1,9 @@
 [user]
   name = Dominik Bernroider
   email = dominik.bernroider@icloud.com
+[core]
+  editor = code --wait
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
