@@ -2,7 +2,7 @@ source "${ZDOTDIR}"/plugins.zsh # get github_plugins
 
 # Uninstall unused Github plugins
 for filename in $(ls ${ZDOTDIR}/plugins); do
-  plugin=$(echo $filename | tr "@" "/")
+  plugin=$(echo ${filename::-1} | tr "@" "/")
 
   if [[ ! " $github_plugins " =~ " $plugin " ]]; then
     echo "\033[0;31mRemoving \033[1;31m'${plugin}'\033[0;31m...\033[0m"
